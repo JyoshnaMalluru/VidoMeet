@@ -52,8 +52,12 @@ export default function Authentication() {
                 setPassword("");
             }
         }catch(err){
-            let message = (err.response.data.message);
-            setError(message);
+          if(err.response){
+            let msg = err.response.data.message;
+            setError(msg);
+          }else{
+            setError();
+          }            
         }
     }
   return (
@@ -66,7 +70,7 @@ export default function Authentication() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url("/public/background.png")',
+            backgroundImage: 'url("/background.png")',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
