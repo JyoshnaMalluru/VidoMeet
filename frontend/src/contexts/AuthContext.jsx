@@ -20,30 +20,31 @@ export const AuthProvider = ({children}) => {
                 username : username,
                 password : password
             })
-            if(request.status === httpStatus.CREATED){
+            if(request.status === 201){
                 return request.data.message;
             }
         }catch(err){
-            throw err;
+            throw err.response?.data?.message || err.message;
         }
     }
 
     const handleLogin = async(username,password)=>{
         try{
-            let request = await client.post("/loginr",{
+            const request = await client.post("/loginr",{
                 username : username,
                 password : password
             })
-            if(request.status === httpStatus.OK){
+            if(request.status === 200){
                 localStorage.setItem("token",request.data.token);
+                return "Login successful!";
             }
         }catch(err){
-            throw err;
+            throw err.response?.data?.message || err.message;
         }
     }
-    const router = useNavigate();
+    // const router = useNavigate();
     const data = {
-        userData,setUserData,handleRegister
+        userData,setUserData,handleRegister,handleLogin
     }
     return(
         <AuthContext.Provider value={data}>

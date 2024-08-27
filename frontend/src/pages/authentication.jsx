@@ -16,18 +16,17 @@ import { AuthContext } from '../contexts/AuthContext';
 import { Snackbar } from '@mui/material';
 
 
-
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function Authentication() {
 
-    const [username, setUsername] = React.useState();
-    const [password, setPassword] = React.useState();
-    const [name, setName] = React.useState();
-    const [error, setError] = React.useState();
-    const [message, setMessage] = React.useState();
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [name, setName] = React.useState("");
+    const [error, setError] = React.useState("");
+    const [message, setMessage] = React.useState("");
     const [formState, setFormState] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const {handleRegister,handleLogin} = React.useContext(AuthContext);
@@ -52,12 +51,11 @@ export default function Authentication() {
                 setPassword("");
             }
         }catch(err){
-          if(err.response){
-            let msg = err.response.data.message;
-            setError(msg);
-          }else{
-            setError();
-          }            
+          // let message = (err.response)
+          // console.log(err);
+          setError(err);
+          setOpen(true);
+          // setError(message);
         }
     }
   return (
@@ -70,7 +68,7 @@ export default function Authentication() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url("/background.png")',
+            backgroundImage: 'url("/public/background.png")',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -152,6 +150,7 @@ export default function Authentication() {
             open={open}
             autoHideDuration={4000}
             message={message}
+            onClose={() => setOpen(false)}
       />
     </ThemeProvider>
   );

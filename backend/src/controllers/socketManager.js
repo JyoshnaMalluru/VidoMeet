@@ -12,8 +12,11 @@ export const connectToSocket = (server) => {
             credentials: true
         }
     });
+    console.log("Socket server is being set up");
     io.on("connection",(socket) => {
+        console.log("Something Got Connected")
         socket.on("join-call",(path)=>{
+            console.log("Join call triggered with path:", path); 
             if(connections[path] === undefined){
                 connections[path] =[]
             }
@@ -29,7 +32,7 @@ export const connectToSocket = (server) => {
                 }
             }
         })
-        socket.on("signal",(told,message)=>{
+        socket.on("signal",(toId,message)=>{
             io.to(toId).emit("signal",socket.id,message)
         })
         socket.on("chat-message",(data,sender)=>{
