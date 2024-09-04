@@ -266,20 +266,17 @@ export default function VideoMeetComponent() {
                 </div>
             </div>:<>
                 <video ref={localVideoRef} autoPlay muted></video>
-                {videos.map((video,index) => (
+                {videos.map((video) => (
                     <div key={video.socketId}>
                         <h2>{video.socketId}</h2>
                         <video
                          data-socket = {video.socketId}
                          ref={ref => {
-                            if(ref && video.stream && !videoRef.current[index]){
+                            if(ref && video.stream){
                                 ref.srcObject = video.stream;
-                                videoRef.current[index] = ref;
                             }
                          }}
                          autoPlay
-                         muted
-                         playsInline
                         > 
                         </video>
                     </div>
