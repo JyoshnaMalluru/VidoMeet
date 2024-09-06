@@ -22,11 +22,11 @@ const defaultTheme = createTheme();
 
 export default function Authentication() {
 
-    const [username, setUsername] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [name, setName] = React.useState("");
-    const [error, setError] = React.useState("");
-    const [message, setMessage] = React.useState("");
+    const [username, setUsername] = React.useState();
+    const [password, setPassword] = React.useState();
+    const [name, setName] = React.useState();
+    const [error, setError] = React.useState();
+    const [message, setMessage] = React.useState();
     const [formState, setFormState] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const {handleRegister,handleLogin} = React.useContext(AuthContext);
@@ -34,12 +34,12 @@ export default function Authentication() {
         try{
             if(formState === 0){
                 let result = await handleLogin(username, password);
-                console.log(result);
-                setMessage(result);
-                setOpen(true);
-                setUsername("");
-                setError("");
-                setPassword("");
+                // console.log(result);
+                // setMessage(result);
+                // setOpen(true);
+                // setUsername("");
+                // setError("");
+                // setPassword("");
             }else if(formState === 1){
                 let result = await handleRegister(name,username,password);
                 console.log(result);
@@ -51,10 +51,11 @@ export default function Authentication() {
                 setPassword("");
             }
         }catch(err){
-          // let message = (err.response)
-          // console.log(err);
+          
+          console.log(err);
+          let message = (err.response.data.message)
           setError(err);
-          setOpen(true);
+          // setOpen(true);
           // setError(message);
         }
     }
@@ -79,8 +80,8 @@ export default function Authentication() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 4,
-              mx: 2,
+              my: 8,
+              mx: 4,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -91,10 +92,10 @@ export default function Authentication() {
             </Avatar>
             <div>
                 <Button variant={formState === 0 ? "contained": ""} onClick = {() => {setFormState(0)}}>
-                    Log in
+                    Sign in
                 </Button>
                 <Button variant={formState === 1 ? "contained": ""} onClick = {() => {setFormState(1)}}>
-                    Register
+                    Sign Up
                 </Button>
             </div>
             {/* <Typography component="h1" variant="h5">
@@ -108,6 +109,7 @@ export default function Authentication() {
                 id="username"
                 label="Full Name"
                 name="username"
+                value={name}
                 autoFocus
                 onChange={(e) =>setName(e.target.value)}
               />:<></>}
@@ -119,6 +121,7 @@ export default function Authentication() {
                 id="username"
                 label="Username"
                 name="username"
+                value={username}
                 autoFocus
                 onChange={(e) =>setUsername(e.target.value)}
               />
@@ -128,6 +131,7 @@ export default function Authentication() {
                 fullWidth
                 name="password"
                 label="Password"
+                value={password}
                 type="password"
                 id="password"
                 onChange={(e) =>setPassword(e.target.value)}
@@ -150,7 +154,6 @@ export default function Authentication() {
             open={open}
             autoHideDuration={4000}
             message={message}
-            onClose={() => setOpen(false)}
       />
     </ThemeProvider>
   );

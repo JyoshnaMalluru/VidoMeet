@@ -19,11 +19,12 @@ app.use("/api/v1/users",userRoutes);
 //     return res.json({"hello":"World"})
 // });
 const start = async () => {
-app.set("mongo_user")
-    const connectionDB = await mongoose.connect("mongodb+srv://jyoshna1595:bir7kM3uKwhICm44@cluster0.jmmh2.mongodb.net/")
-    console.log(`MONGO CONNECTED TO DB HOST: ${connectionDB.connection.host}`)
-    server.listen(app.get("port"), () => {
-        console.log("listening to port 8000")
-    })
+        app.set("mongo_user")
+        const connectionDB = await mongoose.connect("mongodb+srv://jyoshna1595:bir7kM3uKwhICm44@cluster0.jmmh2.mongodb.net/")
+        console.log(`MONGO CONNECTED TO DB HOST: ${connectionDB.connection.host}`)
+        server.listen(app.get("port"), () => {
+            console.log("listening to port 8000")
+        });
+
 }
 start();

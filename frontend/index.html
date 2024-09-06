@@ -1,4 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
+</body>
+</html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,5 +14,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io('http://localhost:8000');  // Ensure you're pointing to the correct server
+      socket.on('connect', () => {
+          console.log('Connected to server with ID:', socket.id);
+          socket.emit('join-call', '/test');
+      });
+  
+      socket.on('user-joined', (id, connections) => {
+          console.log('User joined:', id, connections);
+      });
+  </script> -->
   </body>
 </html>
