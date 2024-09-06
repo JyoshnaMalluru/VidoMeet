@@ -22,11 +22,11 @@ const defaultTheme = createTheme();
 
 export default function Authentication() {
 
-    const [username, setUsername] = React.useState();
-    const [password, setPassword] = React.useState();
-    const [name, setName] = React.useState();
-    const [error, setError] = React.useState();
-    const [message, setMessage] = React.useState();
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [name, setName] = React.useState('');
+    const [error, setError] = React.useState('');
+    const [message, setMessage] = React.useState('');
     const [formState, setFormState] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const {handleRegister,handleLogin} = React.useContext(AuthContext);
@@ -46,7 +46,7 @@ export default function Authentication() {
                 setMessage(result);
                 setOpen(true);
                 setUsername("");
-                setError("");
+                // setError("");
                 setFormState(0);
                 setPassword("");
             }
@@ -54,7 +54,7 @@ export default function Authentication() {
           
           console.log(err);
           let message = (err.response.data.message)
-          setError(err);
+          setError(message);
           // setOpen(true);
           // setError(message);
         }
@@ -69,7 +69,7 @@ export default function Authentication() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url("/public/background.png")',
+            backgroundImage: 'url("/background.png")',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -91,11 +91,11 @@ export default function Authentication() {
               <LockOutlinedIcon />
             </Avatar>
             <div>
-                <Button variant={formState === 0 ? "contained": ""} onClick = {() => {setFormState(0)}}>
-                    Sign in
+                <Button variant={formState === 0 ? "contained": "text"} onClick = {() => {setFormState(0)}}>
+                    Log in
                 </Button>
-                <Button variant={formState === 1 ? "contained": ""} onClick = {() => {setFormState(1)}}>
-                    Sign Up
+                <Button variant={formState === 1 ? "contained": "text"} onClick = {() => {setFormState(1)}}>
+                    Register
                 </Button>
             </div>
             {/* <Typography component="h1" variant="h5">

@@ -34,7 +34,7 @@ export const AuthProvider = ({children}) => {
 
     const handleLogin = async(username,password)=>{
         try{
-            let request = await client.post("/loginr",{
+            let request = await client.post("/login",{
                 username : username,
                 password : password
             })
@@ -42,6 +42,7 @@ export const AuthProvider = ({children}) => {
             console.log(request.data)
             if(request.status === httpStatus.OK){
                 localStorage.setItem("token",request.data.token);
+                setUserData(request.data.user);
                 router("/home");
             }
         }catch(err){
@@ -56,8 +57,7 @@ export const AuthProvider = ({children}) => {
                 }
             });
             return request.data
-        } catch
-         (err) {
+        } catch (err) {
             throw err;
         }
     }

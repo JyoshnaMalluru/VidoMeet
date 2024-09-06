@@ -5,6 +5,7 @@ import "../App.css"
 import { Button, IconButton } from "@mui/material";
 import  RestoreIcon  from "@mui/icons-material/Restore";
 import { AuthContext } from "../contexts/AuthContext";
+import TextField from "@mui/material/TextField";
 
 function HomeComponent(){
     let navigate = useNavigate()
@@ -18,7 +19,7 @@ function HomeComponent(){
         <>
             <div className="navBar">
                 <div style={{display:"flex",alignItems:"center"}}>
-                    <h3>VidoMeet</h3>
+                    <h2>VidoMeet</h2>
                 </div>
                 <div style={{display:"flex",alignItems:"center"}}>
                     <IconButton onClick={
@@ -49,7 +50,7 @@ function HomeComponent(){
                     </div>
                 </div>
                 <div className='rightPanel'>
-                    {/* <img srcSet='/logo3.png' alt="" /> */}
+                    <img srcSet='/logo3.png' alt="" />
                 </div>
             </div>
         </>
