@@ -8,13 +8,15 @@
     width: 100vw;
     height: 100vh;
     background: url("/background.jpg");
+    color: white;
+    display: flex;
+    flex-direction: column;
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
 }
 
 .landingPageContainer nav {
-    padding-inline: 1.2rem;
+    padding-inline: 1.5rem;
     padding-block: 1.6rem;
     display: flex;
     justify-content: space-between;
@@ -32,65 +34,283 @@
     cursor: pointer;
 }
 
+.navHeader{
+  display: flex;
+  align-items: center;
+}
+.navHeader img,.navbarone img {
+  height: 50px;
+  width: 50px;
+}
+
 .landingMainContainer {
     display: flex;
     justify-content: space-between;
-    padding-inline: 3rem;
-    height: 80vh;
+    padding-inline: 2.5rem;
+    /* height: 80vh;
+    align-items: center; */
+    height: 100%;
     align-items: center;
+    flex-wrap: wrap;
 }
 .landingMainContainer > div:nth-child(1){
-    font-size: 2.2rem;
+    font-size: 2rem;
+    max-width: 600px;
 }
-
+.landingMainContainer > div:nth-child(1) h1 {
+  font-size: 2.5rem;
+}
 .landingMainContainer > div:nth-child(1) div[role='button']{
     background: #eba534;
     width: fit-content;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
     margin-top: 1.9rem;
+    outline: none;
 }
 .landingMainContainer > div:nth-child(1) div[role='button'] a{
-    text-decoration: none;
+    text-decoration: none !important;
     color: white;
     font-size: 1.7rem;
+    outline: none;
 }
 .landingMainContainer > div:nth-child(2) img {
-    height: 70vh;
+    height: 65vh;
     width: auto;
 }
 .navBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 20px;
-    text-align: center;
-  
+    height: 80px; /* Fixed height for consistent navbar size */
+    padding: 0 20px; /* Add some padding for spacing */
+    gap: 20px; 
   }
   .meetContainer {
     display: flex;
+    flex-direction: row;
     padding-inline: 20px;
     height: 80vh;
     gap: 10vw;
     justify-content: center;
+    align-items: center;
   }
-  
-  
   
   .leftPanel {
     height: 100%;
     display: flex;
-    align-items: center;
-  
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: flex-start;
   }
   
   .rightPanel {
     display: flex;
+    justify-content: center;
     align-items: center;
+    max-width: 100%;
   }
   
   .rightPanel > img {
     width: 30vw;
+    max-width: 100%; /* Scale down on smaller screens */
     height: auto;
     border-radius: 20px;
   }
+  @media (max-width: 768px) {
+    .meetContainer {
+      flex-direction: column; /* Stack left and right panels vertically */
+      gap: 5vw;
+      height: auto; /* Allow height to adjust dynamically */
+      align-items: center; /* Center the panels */
+  }
+
+  .leftPanel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center content vertically */
+      align-items: center; /* Center content horizontally */
+      text-align: center;
+      gap: 15px; /* Space between elements */
+  }
+
+  .leftPanel h2 {
+      font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .leftPanel div {
+      display: flex;
+      flex-direction: column; /* Stack TextField and Button */
+      align-items: center;
+      gap: 10px;
+      width: 100%; /* Adjust width */
+      max-width: 400px; /* Limit max width for better appearance */
+  }
+
+  .leftPanel input,
+  .leftPanel button {
+      width: 100%; /* Full width elements */
+  }
+
+  .rightPanel > img {
+      width: 50vw;
+  }
+}
+
+@media (max-width: 480px) {
+    .navBar {
+        padding-inline: 10px;
+        gap: 10px;
+    }
+
+    .meetContainer {
+        gap: 2vw;
+        padding-inline: 10px;
+    }
+
+    .leftPanel h2 {
+        font-size: 1.2rem; /* Reduce heading size for small screens */
+    }
+
+    .rightPanel > img {
+        width: 70vw;
+    }
+
+    .leftPanel div {
+        flex-direction: column; /* Stack input and button vertically */
+        gap: 15px;
+    }
+
+    .leftPanel input,
+    .leftPanel button {
+        width: 100%; /* Make elements full-width */
+    }
+}
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .landingMainContainer {
+        display: flex;
+        flex-direction: row; /* Ensure items are side by side */
+        justify-content: space-between;
+        align-items: center;
+        text-align: left; /* Align text to the left if side-by-side layout is preferred */
+        padding-inline: 1.5rem;
+    }
+  
+    .landingMainContainer > div:nth-child(1) {
+        flex: 1; /* Allow equal space for the text container */
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+  
+    .landingMainContainer > div:nth-child(1) h1 {
+        font-size: 2rem;
+    }
+  
+    .landingMainContainer > div:nth-child(2) {
+        flex: 1; /* Allow equal space for the image container */
+        display: flex;
+        justify-content: center;
+    }
+  
+    .landingMainContainer > div:nth-child(2) img {
+        max-height: 50vh;
+        width: auto;
+    }
+  
+    .landingPageContainer nav {
+        display: flex;
+        flex-direction: row; /* Ensure navigation items are side by side */
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+  
+    .landingPageContainer nav .navlist {
+        display: flex;
+        flex-direction: row; /* Keep nav items in a row */
+        align-items: center;
+        gap: 1rem;
+    }
+  }
+  
+@media (max-width: 768px) {
+  .landingMainContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+  .landingMainContainer > div:nth-child(1) {
+      font-size: 1.3rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+      font-size: 1.8rem;
+  }
+  .landingMainContainer > div:nth-child(1) div[role='button'] {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem ;
+  }
+  .landingMainContainer > div:nth-child(1) div[role='button'] a {
+    justify-self: center;
+    font-size: 1.5rem;
+  }
+
+  .landingPageContainer nav h2 {
+      font-size: 1.5rem;
+  }
+  .landingMainContainer > div:nth-child(2) img {
+    max-height: 40vh;
+}
+}
+
+@media (max-width: 480px) {
+  .landingMainContainer {
+      padding-inline: 1rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+      font-size: 1rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+      font-size: 1.5rem;
+  }
+
+  .landingPageContainer nav h2 {
+      font-size: 1.2rem;
+  }
+
+  .landingPageContainer nav .navlist {
+      font-size: 0.9rem;
+  }
+  .landingMainContainer > div:nth-child(2) img {
+    max-height: 35vh;
+  }
+  .landingMainContainer > div:nth-child(1) div[role='button'] {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem ;
+  }
+
+.landingMainContainer > div:nth-child(1) div[role='button'] a {
+    justify-self: center;
+    font-size: 1.3rem;
+  }
+}
+.navbarone {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing between logo and text */
+}
+
+.navBar > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spacing between "History" and Logout button */
+}

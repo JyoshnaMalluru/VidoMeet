@@ -41,7 +41,7 @@ const register = async(req,res) => {
             name : name,
             username : username,
             password : hashedPassword
-         });
+         })
          await newUser.save();
          res.status(httpStatus.CREATED).json({message: "User Registered"})
     }catch (e){

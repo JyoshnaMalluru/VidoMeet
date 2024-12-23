@@ -3,6 +3,7 @@ import httpStatus from "http-status";
 import {createContext} from "react";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import server from "../environment";
 
 
@@ -73,9 +74,8 @@ export const AuthProvider = ({children}) => {
             throw e;
         }
     }
-    // const router = useNavigate();
     const data = {
-        userData,setUserData, addToUserHistory, getHistoryOfUser,handleRegister,handleLogin
+        userData,setUserData,handleRegister,handleLogin,addToUserHistory, getHistoryOfUser
     }
     return(
         <AuthContext.Provider value={data}>

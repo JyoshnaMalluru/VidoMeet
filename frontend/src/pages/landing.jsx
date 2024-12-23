@@ -7,12 +7,10 @@ export default function LandingPage(){
         <div className="landingPageContainer">
             <nav>
                 <div className="navHeader">
+                    <img src="/logo.webp" alt="logo" />
                     <h2>Vido Meet</h2>
                 </div>
                 <div className="navlist">
-                    {/* <p>Join as Guest</p>
-                    <p>Register</p>
-                    <div role="button">Login</div> */}
                     <p onClick={() => {
                         router("/aljk23")
                     }}>Join as Guest</p>
