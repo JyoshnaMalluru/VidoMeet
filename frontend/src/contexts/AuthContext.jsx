@@ -40,11 +40,12 @@ export const AuthProvider = ({children}) => {
                 password : password
             })
             console.log(username, password)
-            console.log(request.data)
+            console.log(request)
             if(request.status === httpStatus.OK){
                 localStorage.setItem("token",request.data.token);
                 setUserData(request.data.user);
                 router("/home");
+                return request.data.message;
             }
         }catch(err){
             throw err;

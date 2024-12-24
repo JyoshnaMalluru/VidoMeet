@@ -424,7 +424,6 @@ export default function VideoMeetComponent() {
                              }):<p>No Messages Yet</p>}
                          </div>
                          <div className={styles.chattingArea}>
-                            {message}
                             <TextField
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
@@ -432,9 +431,15 @@ export default function VideoMeetComponent() {
                                 label="Enter your chat"
                                 variant="outlined"
                                 />
-                             <Button variant="contained"
+                             {/* <Button variant="contained"
                                 onClick={sendMessage}
-                             >Send</Button>
+                             >Send</Button> */}
+                             <Button variant="contained" onClick={sendMessage} style={{
+                                height: '56px',
+                                fontSize: '16px',
+                                padding: '0 15px',
+                                textTransform: 'none', // Disable uppercase if not needed
+                    }}>send</Button>
                          </div>
                      </div>
                     </div>:<></>}
