@@ -14,7 +14,7 @@ import StopScreenShareIcon from '@mui/icons-material/StopScreenShare';
 import ChatIcon from '@mui/icons-material/Chat';
 import { useNavigate } from 'react-router-dom';
 import server from '../environment';
-
+import colourPicker from '../assets/colourpicker.png';
 
 const server_url = server;
 var connections = {}
@@ -389,7 +389,7 @@ export default function VideoMeetComponent() {
                     <Button onClick={()=>{routeTo("/")}} style={{marginTop:"10px"}}>Go to Home</Button>
                 </div>
             </div>:
-            <div className={styles.meetVideoContainer}>
+            <div className={styles.meetVideoContainer}  style={{ backgroundImage: `url(${colourPicker})` }}>
                  {showModal ? <div className={styles.chatRoom}>
                     <div className={styles.chatContainer}>
                      <h1>Chat</h1>
