@@ -23,7 +23,6 @@ export default function History() {
                 const history = await getHistoryOfUser();
                 setMeetings(history);
             } catch (e){
-                // IMPLEMENT SNACKBAR
                 <Snackbar 
                     open={open}
                     autoHideDuration={4000}

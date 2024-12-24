@@ -18,45 +18,42 @@
 .buttonContainers {
     position: absolute;
     width: 100%;
-    bottom: 3vh; /* Adjusted bottom for better spacing */
-    display: flex; /* Added flex to properly align items */
-    justify-content: center; /* Default: centered */
+    bottom: 3vh; 
+    display: flex; 
+    justify-content: center; 
     gap: 5px;
-    padding-left: 20px; /* Ensure the buttons have some padding on the left */
+    padding-left: 20px; 
     margin-bottom: -20px;
 }
 
-/* Button icons */
 .buttonContainers svg {
     font-size: 3rem;
 }
 
-/* Medium screens (max-width: 768px) */
+
 @media (max-width: 768px) {
     .buttonContainers {
-        justify-content: flex-start; /* Align buttons to the start */
-        gap: 4px; /* Slightly smaller gap for medium screens */
+        justify-content: flex-start; 
+        gap: 4px; 
         padding-left: 10px;
-         /* Add padding for better spacing */
         margin-bottom: -20px;
     }
 
     .buttonContainers svg {
-        font-size: 2.5rem; /* Smaller icons on medium screens */
+        font-size: 2.5rem; 
     }
 }
 
-/* Small screens (max-width: 480px) */
 @media (max-width: 480px) {
     .buttonContainers {
-        justify-content: flex-start; /* Align buttons to the start */
-        gap: 3px; /* Even smaller gap for small screens */
-        padding-left: 5px; /* Ensure the buttons are close to the left */
+        justify-content: flex-start; 
+        gap: 3px; 
+        padding-left: 5px; 
         margin-bottom: -20px;
     }
 
     .buttonContainers svg {
-        font-size: 2rem; /* Smaller icons on small screens */
+        font-size: 2rem; 
     }
 }
 

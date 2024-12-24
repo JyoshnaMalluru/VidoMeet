@@ -47,8 +47,6 @@
     display: flex;
     justify-content: space-between;
     padding-inline: 2.5rem;
-    /* height: 80vh;
-    align-items: center; */
     height: 100%;
     align-items: center;
     flex-wrap: wrap;
@@ -82,8 +80,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px; /* Fixed height for consistent navbar size */
-    padding: 0 20px; /* Add some padding for spacing */
+    height: 80px; 
+    padding: 0 20px; 
     gap: 20px; 
   }
   .meetContainer {
@@ -99,7 +97,7 @@
   .leftPanel {
     height: 100%;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column; 
     justify-content: center;
     align-items: flex-start;
   }
@@ -113,43 +111,43 @@
   
   .rightPanel > img {
     width: 30vw;
-    max-width: 100%; /* Scale down on smaller screens */
+    max-width: 100%; 
     height: auto;
     border-radius: 20px;
   }
   @media (max-width: 768px) {
     .meetContainer {
-      flex-direction: column; /* Stack left and right panels vertically */
+      flex-direction: column; 
       gap: 5vw;
-      height: auto; /* Allow height to adjust dynamically */
-      align-items: center; /* Center the panels */
+      height: auto;
+      align-items: center;
   }
 
   .leftPanel {
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Center content vertically */
-      align-items: center; /* Center content horizontally */
+      justify-content: center; 
+      align-items: center; 
       text-align: center;
-      gap: 15px; /* Space between elements */
+      gap: 15px; 
   }
 
   .leftPanel h2 {
-      font-size: 1.5rem; /* Adjust heading size */
+      font-size: 1.5rem; 
   }
 
   .leftPanel div {
       display: flex;
-      flex-direction: column; /* Stack TextField and Button */
+      flex-direction: column; 
       align-items: center;
       gap: 10px;
-      width: 100%; /* Adjust width */
-      max-width: 400px; /* Limit max width for better appearance */
+      width: 100%; 
+      max-width: 400px; 
   }
 
   .leftPanel input,
   .leftPanel button {
-      width: 100%; /* Full width elements */
+      width: 100%; 
   }
 
   .rightPanel > img {
@@ -169,7 +167,7 @@
     }
 
     .leftPanel h2 {
-        font-size: 1.2rem; /* Reduce heading size for small screens */
+        font-size: 1.2rem; 
     }
 
     .rightPanel > img {
@@ -177,28 +175,28 @@
     }
 
     .leftPanel div {
-        flex-direction: column; /* Stack input and button vertically */
+        flex-direction: column; 
         gap: 15px;
     }
 
     .leftPanel input,
     .leftPanel button {
-        width: 100%; /* Make elements full-width */
+        width: 100%; 
     }
 }
-  /* Responsive Design */
+
   @media (max-width: 1024px) {
     .landingMainContainer {
         display: flex;
-        flex-direction: row; /* Ensure items are side by side */
+        flex-direction: row; 
         justify-content: space-between;
         align-items: center;
-        text-align: left; /* Align text to the left if side-by-side layout is preferred */
+        text-align: left; 
         padding-inline: 1.5rem;
     }
   
     .landingMainContainer > div:nth-child(1) {
-        flex: 1; /* Allow equal space for the text container */
+        flex: 1; 
         font-size: 1.5rem;
         padding: 1rem;
     }
@@ -208,7 +206,7 @@
     }
   
     .landingMainContainer > div:nth-child(2) {
-        flex: 1; /* Allow equal space for the image container */
+        flex: 1; 
         display: flex;
         justify-content: center;
     }
@@ -220,7 +218,7 @@
   
     .landingPageContainer nav {
         display: flex;
-        flex-direction: row; /* Ensure navigation items are side by side */
+        flex-direction: row; 
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
@@ -228,7 +226,7 @@
   
     .landingPageContainer nav .navlist {
         display: flex;
-        flex-direction: row; /* Keep nav items in a row */
+        flex-direction: row; 
         align-items: center;
         gap: 1rem;
     }
@@ -306,11 +304,11 @@
 .navbarone {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adjust spacing between logo and text */
+  gap: 10px; 
 }
 
 .navBar > div:last-child {
   display: flex;
   align-items: center;
-  gap: 10px; /* Spacing between "History" and Logout button */
+  gap: 10px; 
 }

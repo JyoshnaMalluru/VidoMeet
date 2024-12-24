@@ -42,10 +42,6 @@ export default function VideoMeetComponent() {
     let [username,setUsername] = useState("");
     const videoRef = useRef([]);
     let [videos,setVideos] = useState([]);
-     // todo
-     // if(isChrome === false){
-
-    // }
     useEffect(()=>{
         getPermissions();
     },[])
@@ -355,22 +351,7 @@ export default function VideoMeetComponent() {
 
         }
         routeTo("/home");
-        //    window.location.href = "/"
     }
-    
-    
-//     let openChat = () => {
-//         setModal(true);
-//         setNewMessages(0);
-//     }
-//     let closeChat = () => {
-//         setModal(false);
-//     }
-//     let handleMessage = (e) => {
-//         setMessage(e.target.value);
-//     }
-
-    
 
     let sendMessage = () => {
         console.log(socketRef.current);
@@ -431,9 +412,6 @@ export default function VideoMeetComponent() {
                                 label="Enter your chat"
                                 variant="outlined"
                                 />
-                             {/* <Button variant="contained"
-                                onClick={sendMessage}
-                             >Send</Button> */}
                              <Button variant="contained" onClick={sendMessage} style={{
                                 height: '56px',
                                 fontSize: '16px',
