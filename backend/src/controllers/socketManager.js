@@ -6,9 +6,9 @@ let timeOnline = {}
 export const connectToSocket = (server) => {
         const io = new Server(server,{
             cors: {
-                origin : "*",
+                origin : "https://vidomeetfrontend-7tzk.onrender.com/",
                 methods: ["GET","POST"],
-                allowedHeaders: ["*"],
+                // allowedHeaders: ["*"],
                 credentials: true,
             }
         });
