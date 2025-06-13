@@ -25,6 +25,7 @@ export const AuthProvider = ({children}) => {
                 username : username,
                 password : password
             })
+            console.log("register response:", request)
             if(request.status === httpStatus.CREATED){
                 return request.data.message;
             }
